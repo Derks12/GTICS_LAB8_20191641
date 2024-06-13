@@ -5,6 +5,7 @@ import org.example.gtics_lab8_20191641.entity.Pokemon;
 import org.example.gtics_lab8_20191641.repository.PokemonRepository;
 import org.example.gtics_lab8_20191641.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,7 +24,7 @@ public class PokeController {
     }
 
     @GetMapping(value = "/{name}")
-    public Pokemon getLocaciones(@PathVariable("name") String name) {
+    public Pokemon getLocaciones(@PathVariable("name") String name) throws JSONException {
 
 
         return pokemonDao.obtenerLocacionPorNombre(name);
